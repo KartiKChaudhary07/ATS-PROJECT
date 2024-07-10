@@ -1,0 +1,98 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.line {
+  width: 140px;
+  height:4px;
+  background-color:black;
+  align-items: center;
+}
+.item{
+  text-align: center;
+}
+.it {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.text {
+  font-size: 20px;
+  color: #333;
+  height: 100hv;
+}
+.rectangle {
+  width: 500px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.paragraph {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.heading {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+.containers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+.containerss {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+}
+.underlined-heading {
+  font-size: 34px;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  height: 600px;
+}
+
+.underlined-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 560px;
+  width: 100%;
+  height: 2px;
+  background-color: black; 
+}
