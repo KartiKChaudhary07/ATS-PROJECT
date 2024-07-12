@@ -12,7 +12,10 @@ import AboutUs from './components/AboutUs';
 import Footer from './components/Footer';
 import UploadButton from './components/UploadButton';
 import Newdisc from './components/Newdisc';
-
+import Item from './Componenets/Item';
+import Update from './Componenets/Update';
+import Hero from './Componenets/Hero';
+import Hell from './Componenets/Hell';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -43,6 +46,10 @@ function App() {
                 <FeatureSection />
                 <Testimonials />
                 <HowItWorks />
+                   <Item/>
+                  <Update/>         
+                   <Hero/>
+                   <Hell/>
                 
 
       <RouterProvider router={router} />
