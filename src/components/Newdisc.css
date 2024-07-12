@@ -1,0 +1,8 @@
+.textOutline0 {
+/* add an outline to the text */
+    transition: transform 0.8s ease-in-out; /* add transition effect */
+  }
+
+ .textOutline0:hover {
+    transform: scale(1.01); /* zoom in on hover */
+  }

@@ -1,0 +1,140 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0px 0%;
+  background-color: transparent;
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  font-size: larger;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+}
+
+.logo {
+  font-size: 32px;
+  color: #fff;
+  font-weight: 700;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar a {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  font-size: 15px;
+  color: #FFF;
+  font-weight: 700;
+  text-decoration: none;
+  margin: 0 15px;
+  text-align: center;
+}
+
+.navbar a::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #DCE0DF;
+  transition: width 0.3s;
+}
+
+.navbar a:hover::before {
+  width: 100%;
+  background: #1790E3;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #DCE0DF;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px transparent;
+  z-index: 1;
+  flex-direction: column;
+}
+
+.dropdown-content a {
+  color: #1790E3;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+
+/* Responsive styles */
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #DCE0DF;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .dropdown-content {
+    position: static;
+    min-width: unset;
+    box-shadow: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: none;
+  }
+
+  .dropdown-content a {
+    padding: 10px;
+  }
+}
