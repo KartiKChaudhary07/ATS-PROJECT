@@ -1,39 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './UploadButton.css';
 
 const Hero = () => {
-  const [file, setFile] = useState(null);
-
-
-  const handleFileChange = (event) => {
-    const selectedFile = event.target.files[0];
-
-    if (selectedFile && selectedFile.type === 'application/pdf') {
-      setFile(selectedFile);
-
-    } else {
-      alert('Please select a PDF file.');
-    }
+  const handleRedirect = () => {
+    window.location.href = './pref';
   };
 
   return (
     <div className="containers">
       <div className="rectangle">
-        <input
-          type="file"
-          accept=".pdf"
-          onChange={handleFileChange}
-          style={{ display: 'none' }}
-          id="upload-button"
-        /><button>
-        <label className="custom-file-upload">
-  <input id="upload-button" type="file" style={{ display: 'none' }} />
-  <span className="button">Upload Your Resume</span>
-</label></button>
-        {file && <p>Selected file: {file.name}</p>}
+        <button onClick={handleRedirect}> 
+          <label className="custom-file-upload">
+            <span className="button">Analyze Your Resume</span>
+          </label>
+        </button>
+
       </div>
     </div>
   );
 };
 
+
 export default Hero;
+
+// import React from 'react';
+// import './UploadButton.css';
+
+// const Hero = () => {
+//   const handleRedirect = () => {
+//     window.location.href = './about';
+//   };
+
+//   return (
+//     <div className="containers">
+//       <div className="rectangle">
+//         <button onClick={handleRedirect}>
+//           <span className="button">Go to About Page</span>
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Hero;

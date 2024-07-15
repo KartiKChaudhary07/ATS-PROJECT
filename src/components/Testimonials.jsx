@@ -1,32 +1,3 @@
-// // src/components/Testimonials.js
-// import React from 'react';
-
-// const Testimonials = () => {
-//   return (
-//     <section style={styles.section}>
-//       <h2>🎓 Testimonials</h2>
-//       <blockquote>"I landed my dream job thanks to this ATS analyzer! The feedback was spot on and incredibly helpful." — John Doe, Marketing Specialist</blockquote>
-//       <blockquote>"A game-changer for job seekers. The AI suggestions made my resume unbeatable." — Jane Smith, Software Engineer</blockquote>
-//       <img src="https://example.com/happy_users.jpg" alt="Happy Users" style={styles.image} />
-//     </section>
-//   );
-// };
-
-// const styles = {
-//   section: {
-//     padding: '50px 20px',
-//     backgroundColor: 'transparent',
-//     textAlign: 'left',
-//     color: '#fff',
-//   },
-//   image: {
-//     width: '100%',
-//     height: 'auto',
-//     marginTop: '20px',
-//   },
-// };
-
-// export default Testimonials;
 import React from 'react';
 import './Testimonials.css';
 

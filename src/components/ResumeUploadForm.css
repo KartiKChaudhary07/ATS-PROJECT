@@ -1,0 +1,46 @@
+/* src/styles/ResumeUploadForm.css */
+.upload-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  h2 {
+    color: white;
+  }
+  
+  .input-file, .textarea-job-description {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .input-file {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .textarea-job-description {
+    width: 100%;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .btn-upload {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+  }
+  

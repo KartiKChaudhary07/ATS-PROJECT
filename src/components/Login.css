@@ -1,0 +1,222 @@
+/* .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    background-image: url('./src/assets/GIF.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 19px;
+  }
+  
+  .form {
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 3000px;
+    text-align: center;
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 150px;
+  }
+  
+  .form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 19px;
+  }
+  
+  .form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 19px;
+    background: linear-gradient(to right, #0062cc, #00c6ff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .form button:hover {
+    background: linear-gradient(to right, #0056b3, #313536);
+  }
+  
+  .form .forgot-password {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #007bff;
+    cursor: pointer;
+  }
+  
+  .form .signup,
+  .form .login {
+    margin-top: 20px;
+  }
+  
+  .form .signup button,
+  .form .login button {
+    background: none;
+    border: 1px solid #007bff;
+    color: #007bff;
+  }
+  
+  .form .signup button:hover,
+  .form .login button:hover {
+    background: #007bff;
+    color: white;
+  }
+  
+  .form .social-signup {
+    margin-top: 20px;
+  }
+  
+  .form .social-signup img {
+    width: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
+  .social-signup img:hover {
+    transform: scale(1.08);
+    
+  
+}
+
+  .new {
+    font-size: 26px;
+    font-weight: bold;
+    color: #151414;
+    text-shadow: 2px 2px 4px #b9b7b7;
+    margin-bottom: 20px;
+    font-family:"Segoe UI";
+  } */
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 67vh;
+    background-image: url('./src/assets/GIF.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 19px;
+    width: 700px;
+  }
+
+  
+  .login-form {
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 3000px;
+    text-align: center;
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 60px;
+  }
+  
+  .login-title {
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #151414;
+    text-shadow: 2px 2px 4px #b9b7b7;
+    font-family: "Segoe UI";
+  }
+  
+  .login-input-email,
+  .login-input-password,
+  .login-input-user {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 19px;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 19px;
+    background: linear-gradient(to right, #0062cc, #00c6ff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(to right, #0056b3, #313536);
+  }
+  
+  .login-forgot-password {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #0f0f0f;
+    cursor: pointer;
+  }
+  
+  .login-signup {
+    margin-top: 20px;
+  }
+  
+  .login-new-user-text {
+    background: none;
+
+    color: #007bff;
+    
+  }
+  .login-signup-button {
+    background: transparent;
+    border: none;
+    color: rgb(11, 10, 10);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 19px;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: "Segoe UI", sans-serif;
+  }
+  
+  .login-signup-button:hover {
+    background: #4facfe;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  
+  .login-social-signup {
+    margin-top: 20px;
+  }
+  
+  .login-social-signup-text {
+    margin-bottom: 10px;
+  }
+  
+  .login-social-signup-link img {
+    width: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .login-social-signup-link img:hover {
+    transform: scale(1.08);
+  }
+  

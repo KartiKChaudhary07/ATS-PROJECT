@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
+import Loading from './Loading';
 
 
 const Navbar = () => {
   const [scrollDirection, setScrollDirection] = useState('up');
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +19,7 @@ const Navbar = () => {
       }
       setLastScrollY(currentScrollY);
     };
+    
 
     window.addEventListener('scroll', handleScroll);
 
@@ -24,6 +27,17 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+  
 
   return (
     <header className={`header ${scrollDirection === 'down' ? 'hidden' : ''}`}>
@@ -34,23 +48,26 @@ const Navbar = () => {
         </a>
       </div>
       <nav className="navbar">
-        <NavLink exact activeClassName="active" to="/">Home</NavLink>
+        <Link exact activeClassName="active" to="/home">Home</Link>
         <div className="dropdown">
-          <NavLink activeClassName="active" to="/">Resume Analysis</NavLink>
+          <Link activeClassName="active" to="/pref">Resume Analysis</Link>
           <div className="dropdown-content">
-            <NavLink activeClassName="active" to="/me-page">ATS Score</NavLink>
-            <NavLink activeClassName="active" to="/you-page">Suggestions</NavLink>
-            <NavLink activeClassName="active" to="/us-page">Bullet Points</NavLink>
+            <Link activeClassName="active" to="/score">ATS Score</Link>
+            <Link activeClassName="active" to="/sugg">Suggestions</Link>
+            <Link activeClassName="active" to="/bullet">Bullet Points</Link>
           </div>
         </div>
         <div className="dropdown">
-          <NavLink activeClassName="active" to="/Default">Resume Maker</NavLink>
+          <Link activeClassName="active" to="/na">Resume Maker</Link>
           <div className="dropdown-content">
-            <NavLink activeClassName="active" to="/Default">Standard</NavLink>
+            <Link activeClassName="active" to="/na">Standard</Link>
           </div>
         </div>
-        <NavLink activeClassName="active" to="/services">Services</NavLink>
-        <NavLink activeClassName="active" to="/contact">About Us</NavLink>
+        <Link activeClassName="active" to="/na">Services</Link>
+        <Link activeClassName="active" to="/about">About Us</Link>
+        <div className="dropdown">
+          <Link activeClassName="active" to="/login">Register</Link>
+        </div>
       </nav>
     </header>
   );

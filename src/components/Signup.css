@@ -1,0 +1,124 @@
+.register-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-image: url('./src/assets/GIF.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 19px;
+    width: 500px;
+    margin-left: 31.8%;
+}
+  
+.register-form {
+    
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 3000px;
+    text-align: center;
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 60px;
+    
+}
+  
+.register-title {
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #151414;
+    text-shadow: 2px 2px 4px #b9b7b7;
+    font-family: "Segoe UI";
+    
+}
+  
+.register-input-username,
+.register-input-email,
+.register-input-password,
+.register-input-confirm-password {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 19px;
+}
+  
+.register-button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 19px;
+    background: linear-gradient(to right, #0062cc, #00c6ff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 2%;
+}
+  
+.register-button:hover {
+    background: linear-gradient(to right, #0056b3, #313536);
+}
+  
+.register-forgot-password {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #007bff;
+    cursor: pointer;
+}
+.nw{
+    color: #007bff;
+    
+}
+  
+.register-login-link {
+    margin-top: 20px;
+}
+  
+.register-new-user-text {
+    background: none;
+    color: #0b0b0b;
+}
+  
+.register-login-button {
+    background: transparent;
+    border: none;
+    color: rgb(14, 13, 13);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 19px;
+    transition: all 0.4s ease-in-out;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: "Segoe UI", sans-serif;
+}
+  
+.register-login-button:hover {
+    background: #4facfe;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+  
+.register-social-signup {
+    margin-top: 20px;
+}
+  
+.register-social-signup-text {
+    margin-bottom: 10px;
+}
+  
+.register-social-signup-link img {
+    width: 30px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+}
+  
+.register-social-signup-link img:hover {
+    transform: scale(1.08);
+}

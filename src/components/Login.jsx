@@ -1,109 +1,84 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
+import Loading from './Loading';
 
-export default function Login() {
-  const [role, setRole] = useState("");
-  const [description, setDescription] = useState("");
-  const [file, setFile] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [serverError, setServerError] = useState(false);
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
-  const handleRole = (e) => {
-    setRole(e.target.value);
-  };
-
-  const handleDescription = (e) => {
-    setDescription(e.target.value);
-  };
-
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (file && role && description) {
-      const formData = new FormData();
-      formData.append("resume", file);
-      formData.append("role", role);
-      formData.append("description", description);
-
-      setLoading(true); // Set loading state to true
-
-      try {
-        // Simulated fetch request (replace with actual fetch)
-        // const response = await fetch(api, {
-        //   method: "POST",
-        //   body: formData,
-        // });
-        // const data = await response.json();
-        const data = { score: "85", positives: ["experience in AI", "strong communication skills"], negatives: ["lack of specific technical skills"] }; // Simulated response data
-
-        if (data.err) {
-          alert("Server error, please try again");
-          console.log("Server side error");
-          setServerError(true);
-        } else {
-          console.log("Success:", data);
-          // Handle response data (setResponseData(data); navigate("/response");)
-          navigate("/response");
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      } finally {
-        setLoading(false); // Set loading state to false regardless of the outcome
+    try {
+      const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      if (res.data.token) {
+        localStorage.setItem('token', res.data.token);
+        navigate('/home');
+      } else {
+        console.error('Login failed: No token received');
       }
-    } else {
-      console.error("All fields are required.");
+    } catch (err) {
+      console.error('Login error:', err);
     }
   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
-    <div className="container">
-      <div className="header">
-        <h1>Gemini powered AI model analyzes your resume for formatting, keywords, and more. Improve your resume in minutes, not hours.</h1>
-      </div>
-      <form onSubmit={handleSubmit} className="form">
-        <div className="form-group">
+    <div><br></br><br></br><br></br>
+    <div className="form-container">
+      <form onSubmit={handleSubmit} className="login-form">
+      <h2 className='login-title'>Login to cWSCAN</h2>
           <input
-            type="text"
+            type="name"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Username or Email"
             required
-            value={role}
-            placeholder="Job role"
-            onChange={handleRole}
-            className="input"
+            className="login-input-user"
           />
-        </div>
-        <div className="form-group">
-          <textarea
-            required
-            value={description}
-            onChange={handleDescription}
-            className="textarea"
-            placeholder="Job Description"
-          ></textarea>
-        </div>
-        <div className="form-group">
           <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
             required
-            type="file"
-            onChange={handleFileChange}
-            className="file-input"
+            className="login-input-password"
           />
-          <p className="file-info">Max file size 10mb</p>
-          {serverError && (
-            <p className="error-message">Server error, please try again</p>
-          )}
+
+          <button type="submit" className="login-button">Login</button>
+
+          <div className="login-forgot-password" onClick={() => navigate('/na')}>Forgot password ?</div>
+          <div className="login-signup">
+            <p className="login-new-user-text">New user ?</p>
+            <button type="button" onClick={() => navigate('/signup')} className="login-signup-button">Signup Now</button>
+          </div>
+          <div className="login-social-signup">
+            <p className="login-social-signup-text">May also signup with</p>
+            <a href="https://accounts.google.com/signup" target="_blank" className="login-social-signup-link">
+              <img src="https://static-00.iconduck.com/assets.00/google-icon-512x512-tqc9el3r.png" alt="Google" className="login-social-signup-icon" />
+            </a>
+            <a href="https://github.com/join" target="_blank" className="login-social-signup-link">
+              <img src="https://cdns.iconmonstr.com/wp-content/releases/preview/2012/240/iconmonstr-github-1.png" alt="GitHub" className="login-social-signup-icon" />
+            </a>
+            <a href="https://www.linkedin.com/signup" target="_blank" className="login-social-signup-link">
+              <img src="https://static-00.iconduck.com/assets.00/linkedin-icon-256x256-k7c74t1i.png" alt="LinkedIn" className="login-social-signup-icon" />
+  </a>
         </div>
-        <button
-          className={`btn ${loading ? "btn-disabled" : ""}`}
-          type="submit"
-          disabled={loading}
-        >
-          {loading ? <span className="loading"></span> : "Submit"}
-        </button>
       </form>
-    </div>
+    </div></div>
   );
-}
+};
+
+export default Login;

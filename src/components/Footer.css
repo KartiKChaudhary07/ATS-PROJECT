@@ -1,0 +1,37 @@
+.footer {
+  padding: 50px 20px;
+  background-color: transparent;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.social-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.social-links li {
+  margin: 0 10px;
+}
+
+.social-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+  color: #1790E3;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border-radius: 10px;
+}
