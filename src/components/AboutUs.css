@@ -1,0 +1,54 @@
+.about-section {
+    padding: 50px 20px;
+    background-color: transparent;
+    text-align: left;
+    color: #fff;
+  }
+  
+  .members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .member {
+    width: 240px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: transform 0.5s;
+    text-align: center;
+  }
+  
+  .member:hover {
+    transform: scale(1.05);
+  }
+  
+  .member-image {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 10px;
+    object-fit: cover;
+    border: 2px solid #0d0c0c;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .member h3 {
+    margin: 10px 0 5px;
+  }
+  
+  .member p {
+    margin: 0 0 10px;
+  }
+  
+  .member a {
+    color: #00f;
+    text-decoration: none;
+  }
+  
+  .member a:hover {
+    text-decoration: underline;
+  }

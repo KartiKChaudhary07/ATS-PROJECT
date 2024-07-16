@@ -8,31 +8,34 @@ function Score() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 300);
-
+    const timer = setTimeout(() => setLoading(false), 300);
     return () => clearTimeout(timer);
   }, []);
 
-  const handlePdfChange = (event) => {
-    setPdfFile(event.target.files[0]);
-  };
+  const handlePdfChange = (event) => setPdfFile(event.target.files[0]);
 
-  const handleJobDescriptionChange = (event) => {
-    setJobDescription(event.target.value);
-  };
+  const handleJobDescriptionChange = (event) => setJobDescription(event.target.value);
 
-  const handleJobRoleChange = (event) => {
-    setJobRole(event.target.value);
-  };
+  const handleJobRoleChange = (event) => setJobRole(event.target.value);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('PDF File:', pdfFile);
-    console.log('Job Description:', jobDescription);
-    console.log('Job Role:', jobRole);
+    const formData = new FormData();
+    formData.append('resume', pdfFile);
+    formData.append('jd', jobDescription);
+    formData.append('role', jobRole);
+
+    fetch('/upload', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Response:', data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   };
 
   return (
