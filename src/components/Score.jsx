@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Kk.css';
 
 function Score() {
@@ -6,6 +7,9 @@ function Score() {
   const [jobDescription, setJobDescription] = useState('');
   const [jobRole, setJobRole] = useState('');
   const [loading, setLoading] = useState(true);
+  const [submitting, setSubmitting] = useState(false); 
+  const [res, setRes] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 300);
@@ -19,19 +23,22 @@ function Score() {
   const handleJobRoleChange = (event) => setJobRole(event.target.value);
 
   const handleSubmit = (event) => {
+    setSubmitting(true);
     event.preventDefault();
     const formData = new FormData();
     formData.append('resume', pdfFile);
     formData.append('jd', jobDescription);
     formData.append('role', jobRole);
 
-    fetch('/upload', {
+    fetch('http://localhost:3000/upload', {
       method: 'POST',
       body: formData,
     })
       .then((response) => response.json())
       .then((data) => {
         console.log('Response:', data);
+        setRes(data.response);
+        navigate('/response', { state: { response: data.response } });
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -55,6 +62,7 @@ function Score() {
                 accept=".pdf"
                 onChange={handlePdfChange}
                 className="input-file"
+                required
               />
             </label>
             <br />
@@ -65,6 +73,7 @@ function Score() {
                 onChange={handleJobDescriptionChange}
                 className="input-textarea"
                 placeholder="Job Description"
+                required
               />
             </label>
             <br />
@@ -79,9 +88,10 @@ function Score() {
               />
             </label>
             <br />
-            <button type="submit" className="submit-button">
-              Submit
+            <button type="submit" className="submit-button" disabled={submitting}>
+              {submitting ? 'Submitting...' : 'Submit'}
             </button>
+
           </form>
         </div>
       )}

@@ -16,6 +16,7 @@ const AboutUs = () => {
     return <Loading />;
   }
   return (
+    
     <section className="about-section"><br></br><br></br>
       <h2>About Us</h2>
       <p>We are a team CW of passionate technologists and HR professionals dedicated to making the job application process smoother and more successful for everyone. Our mission is to leverage the power of AI to help you achieve your career goals.</p><br></br><br></br>

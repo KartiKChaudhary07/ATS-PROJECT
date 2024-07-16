@@ -3,6 +3,10 @@
     background-color: transparent;
     text-align: left;
     color: #fff;
+    background-color: rgba(10, 10, 10, 0.3);
+
+    border-radius: 15px;
+    border: 1px solid #202020;
   }
   
   .members {
@@ -11,6 +15,7 @@
     justify-content: center;
     gap: 20px;
     margin-top: 20px;
+
   }
   
   .member {

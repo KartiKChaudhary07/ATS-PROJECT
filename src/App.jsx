@@ -20,7 +20,7 @@ import Score from './components/Score';
 import Sugg from './components/Sugg';
 import Bullet from './components/Bullet';
 import Signup from './components/Signup';
-import Yoyo from './components/Yoyo';
+import Response from './components/Response';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -40,7 +40,8 @@ function App() {
     },
     {
     path: "/",
-    element: <><Navbar />                <Header />
+    element: <><Navbar />      <Login />        
+              {/* <Header />
               <UploadButton /><br></br><br></br><br></br><br></br>
               <Newdisc />
               <FeatureSection />
@@ -48,7 +49,8 @@ function App() {
               <HowItWorks /><br></br><br></br><br></br><br></br>
               <Ir />
               <AboutUs />
-              <Footer /></>
+              <Footer /> */}
+              </>
   },
     {
       path: "/navo",
@@ -94,6 +96,12 @@ function App() {
       path: "/signup",
       element: <><Navbar /><Signup/></>
     },
+    {
+      path: "/response",
+      element: <>
+        <Navbar /><Response />
+      </>
+    }
   ])
   return (
     <>

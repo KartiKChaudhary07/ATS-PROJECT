@@ -238,5 +238,14 @@
     outline: none;
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5);
   }
-  
+  .titlenew{
+    font-size: 18px;
+    font-weight: bold;
+    color: #d2cdcd;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000;
+  }
   
