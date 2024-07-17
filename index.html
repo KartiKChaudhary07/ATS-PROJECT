@@ -1,13 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/icon.jpg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>cWSCAN</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CW ATS</title>
+    <style>
+      #loading {
+          display: none;
+          width: 25px;
+          height: 25px;
+          border: 5px solid #f3f3f3;
+          border-top: 5px solid #3498db;
+          border-radius: 50%;
+          animation: spin 2s linear infinite;
+          margin: auto;
+      }
+
+      @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+      }
+      #response {
+            white-space: pre-wrap;
+        }
+  </style>
+</head>
+<body>
+    <h1>CW ATS Analyzer</h1>
+    <p>Improve Your Resume ATS</p>
+    <form id="resumeForm" enctype="multipart/form-data">
+        <label for="jd">Paste the Job Description:</label>
+        <textarea id="jd" name="jd" rows="10" cols="50"></textarea><br><br>
+        <label for="resume">Upload Your Resume (PDF only):</label>
+        <input type="file" id="resume" name="resume" accept="application/pdf"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    <div id="loading"></div>
+    <h2>Response And Suggestions:</h2>
+    <pre id="response"></pre>
+    
+    <script>
+      document.getElementById('resumeForm').addEventListener('submit', async (event) => {
+          event.preventDefault();
+          
+          const formData = new FormData();
+          formData.append('jd', document.getElementById('jd').value);
+          formData.append('resume', document.getElementById('resume').files[0]);
+
+          const loadingElement = document.getElementById('loading');
+          const responseElement = document.getElementById('response');
+
+          loadingElement.style.display = 'block';
+          responseElement.textContent = '';
+
+          const response = await fetch('/upload', {
+              method: 'POST',
+              body: formData
+          });
+
+          const result = await response.json();
+
+          loadingElement.style.display = 'none';
+          const formattedResponse = result.response.replace(/\n/g, '<br>');
+            responseElement.innerHTML = formattedResponse;
+
+
+          // responseElement.textContent = JSON.stringify(result.response, null, 2);
+      });
+  </script>
+</body>
 </html>
