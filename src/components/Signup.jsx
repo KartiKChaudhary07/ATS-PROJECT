@@ -16,7 +16,7 @@ const Signup = () => {
       return alert('Passwords do not match');
     }
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
+      const res = await axios.post('http://localhost:3000/register', { username, email, password });
       localStorage.setItem('token', res.data.token);
       navigate('/home');
     } catch (err) {
